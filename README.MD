@@ -161,6 +161,7 @@ Contoh:
 ### `product_categories.json`
 
 Berisi tabel relasi antara produk dan kategori. Setiap objek merepresentasikan **satu hubungan antara satu produk dan satu kategori**
+
 Contoh:
 
 ```json
