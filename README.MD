@@ -161,7 +161,6 @@ Contoh:
 ### `product_categories.json`
 
 Berisi tabel relasi antara produk dan kategori. Setiap objek merepresentasikan **satu hubungan antara satu produk dan satu kategori**
-
 Contoh:
 
 ```json
@@ -320,14 +319,61 @@ Skema star, dibangun dari tabel `products`, `variants`, dan `categories` (bukan 
 <details>
 <summary><h2>9. Bonus: Query Optimasi</h2></summary>
 
-Tiga optimasi di `Query Optimasi/query_optimasi.sql`:
+Berikut 3 query yang dioptimalkan menggunakan index dan penulisan ulang query, beserta perbandingan **EXPLAIN ANALYZE** sebelum dan sesudah.
 
-1. Index pada `variants.product_id` (foreign key tidak otomatis ter-index di PostgreSQL) untuk mempercepat join produk-varian.
-2. Index pada `variants.availability` untuk mempercepat filter berdasarkan status stok.
-3. Menulis ulang correlated subquery (`EXISTS`) jadi `JOIN` biasa untuk mencari produk dengan varian diskon.
+| No. | Optimasi | Perbaikan yang Ditambahkan | Perubahan Query Plan |
+| --- | --- | --- | --- |
+| 1 | Index pada **Foreign Key** `variants.product_id` | Menambahkan B-tree index pada `variants.product_id` karena PostgreSQL tidak otomatis membuat index pada foreign key. | **Seq Scan** → **Index Scan** |
+| 2 | Index pada `variants.availability` | Menambahkan B-tree index pada kolom `availability` untuk mempercepat pencarian berdasarkan status stok. | **Seq Scan** → **Index Scan** |
+| 3 | Menulis Ulang **Correlated Subquery** menjadi **JOIN** | Mengganti `EXISTS` dengan `JOIN` + `DISTINCT` agar tabel `variants` tidak discan berulang kali. | Scan berulang pada `variants` → Satu kali scan gabungan |
 
-Bukti perubahan dari Seq Scan ke Index Scan ada di screenshot `EXPLAIN ANALYZE` folder `Query Optimasi`.
+---
 
+### Optimasi 1: Index pada Foreign Key `variants.product_id`
+
+**Before Optimization**
+
+<div align="left">
+  <img src="Query Optimization/screenshot/optimization-1a.png" alt="Before Optimization 1" width="700"/>
+</div>
+
+**After Optimization**
+
+<div align="left">
+  <img src="Query Optimization/screenshot/optimization-1b.png" alt="After Optimization 1" width="700"/>
+</div>
+
+---
+
+### Optimasi 2: Index pada `variants.availability`
+
+**Before Optimization**
+
+<div align="left">
+  <img src="Query Optimization/screenshot/optimization-2a.png" alt="Before Optimization 2" width="700"/>
+</div>
+
+**After Optimization**
+
+<div align="left">
+  <img src="Query Optimization/screenshot/optimization-2b.png" alt="After Optimization 2" width="700"/>
+</div>
+
+---
+
+### Optimasi 3: Menulis Ulang Correlated Subquery menjadi JOIN
+
+**Before Optimization**
+
+<div align="left">
+  <img src="Query Optimization/screenshot/optimization-3a.png" alt="Before Optimization 3" width="700"/>
+</div>
+
+**After Optimization**
+
+<div align="left">
+  <img src="Query Optimization/screenshot/optimization-3b.png" alt="After Optimization 3" width="700"/>
+</div>
 </details>
 
 <details open>
