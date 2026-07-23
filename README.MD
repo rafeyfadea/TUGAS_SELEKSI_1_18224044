@@ -316,7 +316,7 @@ Skema star, dibangun dari tabel `products`, `variants`, dan `categories` (bukan 
   <img src="Data Warehouse/screenshot/warehouse-3.png" alt="Analysis Queries" width="800"/>
 </div>
 
-<details>
+<details open>
 <summary><h2>9. Bonus: Query Optimasi</h2></summary>
 
 Berikut 3 query yang dioptimalkan menggunakan index dan penulisan ulang query, beserta perbandingan **EXPLAIN ANALYZE** sebelum dan sesudah.
