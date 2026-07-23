@@ -374,10 +374,57 @@ Berikut 3 query yang dioptimalkan menggunakan index dan penulisan ulang query, b
 <div align="left">
   <img src="Query Optimization/screenshot/optimization-3b.png" alt="After Optimization 3" width="700"/>
 </div>
+<details open>
+<summary><h2>10. Bonus: Automated Scheduling</h2></summary>
+
+Seluruh pipeline (**scraping**, **loading ke database**, dan **pencatatan log**) digabungkan ke dalam satu wrapper script `run_pipeline.sh`. Script tersebut kemudian dijadwalkan menggunakan `cron` sehingga proses ETL dapat berjalan secara otomatis tanpa perlu dijalankan secara manual.
+
+Setiap kali pipeline dijalankan, jumlah record pada setiap tabel dicatat ke dalam file `Automated Scheduling/etl_log.txt` beserta timestamp eksekusinya. Karena proses scraping melakukan deduplikasi berdasarkan primary key dan proses loading menggunakan `ON CONFLICT DO NOTHING`, menjalankan pipeline berulang kali tidak menghasilkan data duplikat, melainkan hanya menambahkan catatan waktu eksekusi.
+
+### Menjalankan Pipeline Secara Manual
+
+```bash
+cd "Automated Scheduling/src"
+chmod +x run_pipeline.sh
+./run_pipeline.sh
+```
+
+### Menjadwalkan Menggunakan Cron
+
+```bash
+crontab -e
+```
+
+Tambahkan baris berikut (sesuaikan dengan lokasi project):
+
+```cron
+0 */6 * * * /path/to/project/Automated\ Scheduling/src/run_pipeline.sh >> /path/to/project/Automated\ Scheduling/cron_output.log 2>&1
+```
+
+Perintah di atas akan menjalankan pipeline setiap **6 jam**. Untuk melihat daftar cron yang telah terpasang, jalankan:
+
+```bash
+crontab -l
+```
+
+### Screenshot
+
+<div align="left">
+  <img src="Automated Scheduling/screenshot/scheduling-1.png" alt="Cron job berhasil terpasang" width="700"/>
+</div>
+
+<div align="left">
+  <img src="Automated Scheduling/screenshot/scheduling-2.png" alt="Pipeline berjalan otomatis" width="700"/>
+</div>
+
+<div align="left">
+  <img src="Automated Scheduling/screenshot/scheduling-3.png" alt="ETL log menunjukkan dua kali eksekusi tanpa data duplikat" width="700"/>
+</div>
+
 </details>
 
 <details open>
-<summary><h2>10. Penggunaan AI</h2></summary>
+<summary><h2>11. Penggunaan AI</h2></summary>
 
 Penyusunan kerangka script scraping awal, debugging, penjelasan konsep ERD/diagram relasional/data warehouse, dan penulisan DDL SQL.
 
@@ -388,7 +435,7 @@ Sementara itu, untuk pemilihan topik dan website, verifikasi manual struktur dat
 </details>
 
 <details open>
-<summary><h2>11. Referensi</h2></summary>
+<summary><h2>12. Referensi</h2></summary>
 
 1. [Mother of Pearl - All Products](https://motherofpearl.id)
 2. [Dokumentasi PostgreSQL](https://www.postgresql.org/)
