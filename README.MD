@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="Data Scraping/screenshot/ss_website.png" alt="Header" width="100%"/>
+  <img src="Data Scraping/screenshot/header.png" alt="Header" width="100%"/>
 </div>
 
 <h2 align="center">
