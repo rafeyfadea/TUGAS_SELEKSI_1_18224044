@@ -29,21 +29,64 @@ Website ini dipilih karena datanya memiliki struktur berlapis yang jelas, sehing
 </details>
 
 <details open>
-<summary><h2>3. Cara Menjalankan Scraper</h2></summary>
+<summary><h2>3. Specification and File Structure</h2></summary>
 
-**Requirements:** Python 3.9+, PostgreSQL 14+, library `requests` dan `beautifulsoup4`.
+**Requirements:** Python 3.9+, PostgreSQL 14+.
 
-```sh
-git clone [URL_REPOSITORY_HASIL_FORK]
-cd [NAMA_FOLDER_PROYEK]/Data\ Scraping/src
-pip install -r requirements.txt
-python3 products.py
-python3 variants.py
-python3 categories.py
-```
+### Specification
 
-Hasilnya empat file JSON di `Data Scraping/data`: `products.json`, `variants.json`, `categories.json`, `product_categories.json`.
+Python digunakan untuk seluruh proses scraping dan loading data, sedangkan PostgreSQL digunakan sebagai Relational Database Management System (RDBMS) untuk menyimpan hasil scraping. Berikut adalah library yang digunakan beserta alasan pemilihannya.
 
+<details>
+<summary><code>requests</code></summary>
+
+**Alasan:** Halaman produk dan koleksi pada website Mother of Pearl sudah merender data lengkap pada HTML awal tanpa memerlukan JavaScript, sehingga cukup menggunakan HTTP request biasa.
+
+</details>
+
+<details>
+<summary><code>beautifulsoup4</code></summary>
+
+**Alasan:** Digunakan untuk melakukan parsing HTML hasil request dan mengambil data dari tag `<script type="application/ld+json">` yang berisi informasi produk dalam format terstruktur.
+
+</details>
+
+<details>
+<summary><code>psycopg2</code></summary>
+
+**Alasan:** Digunakan untuk menghubungkan Python dengan PostgreSQL sehingga data hasil scraping dapat dimasukkan langsung ke database melalui program.
+
+</details>
+
+<details>
+<summary><code>json</code> (Built-in Python)</summary>
+
+**Alasan:** Digunakan untuk menyimpan hasil scraping ke dalam file berformat JSON yang terstruktur dan mudah digunakan kembali pada proses loading.
+
+</details>
+
+<details>
+<summary><code>re</code> (Built-in Python)</summary>
+
+**Alasan:** Digunakan untuk mengekstrak pola teks tertentu dari deskripsi produk, seperti daftar nomor BPOM untuk setiap shade, informasi netto, dan PAO yang tidak memiliki struktur tetap.
+
+</details>
+
+<details>
+<summary><code>time</code> (Built-in Python)</summary>
+
+**Alasan:** Digunakan untuk memberikan jeda antar HTTP request agar proses scraping tidak membebani server dan tetap mengikuti etika web scraping.
+
+</details>
+
+<details>
+<summary><code>os</code> (Built-in Python)</summary>
+
+**Alasan:** Digunakan untuk memastikan direktori penyimpanan data tersedia sebelum file JSON hasil scraping dibuat.
+
+</details>
+
+ 
 **Load ke database:**
 ```sh
 cd ../../Data\ Storing/src
@@ -55,10 +98,15 @@ python3 load_to_postgres.py
 
 </details>
 
-<details open>
-<summary><h2>4. Struktur File JSON</h2></summary>
 
-**products.json** - satu baris per produk.
+## File Structure
+
+### `products.json`
+
+Berisi informasi utama setiap produk. Data yang disimpan meliputi identitas produk, nama, kategori utama, deskripsi, isi bersih (netto), periode penggunaan setelah dibuka (PAO), dan URL halaman produk.
+
+Contoh:
+
 ```json
 {
   "product_id": "g-w-s-gleaming-wonderful-shiny-plump-gloss-01-mlbb",
@@ -71,7 +119,14 @@ python3 load_to_postgres.py
 }
 ```
 
-**variants.json** - satu baris per shade. Harga dan stok melekat di sini, bukan di produk, karena tiap shade bisa punya harga berbeda.
+---
+
+### `variants.json`
+
+Berisi informasi setiap **varian (shade)** produk. Atributnya meliputi Harga, SKU, status ketersediaan, dan nomor BPOM disimpan pada level varian karena setiap shade dapat memiliki atribut yang berbeda.
+
+Contoh:
+
 ```json
 {
   "variant_id": "46284845351156",
@@ -85,8 +140,35 @@ python3 load_to_postgres.py
 }
 ```
 
-**categories.json** dan **product_categories.json** - daftar kategori dan tabel relasi many-to-many antara produk dan kategori (satu produk bisa masuk lebih dari satu kategori).
+---
 
+### `categories.json`
+
+Berisi daftar seluruh kategori produk. Setiap kategori memiliki ID unik, slug, dan nama kategori.
+
+Contoh:
+
+```json
+{
+  "category_id": 3,
+  "slug": "lips-all",
+  "name": "Lips All"
+}
+```
+
+---
+
+### `product_categories.json`
+
+Berisi tabel relasi antara produk dan kategori. Setiap objek merepresentasikan **satu hubungan antara satu produk dan satu kategori**
+Contoh:
+
+```json
+{
+  "product_id": "g-w-s-gleaming-wonderful-shiny-plump-gloss-01-mlbb",
+  "category_id": 3
+}
+```
 </details>
 
 <details open>
