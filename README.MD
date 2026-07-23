@@ -206,7 +206,7 @@ Skema terdiri dari 4 entitas hasil scraping murni (`products`, `variants`, `cate
 
 ### Tampilan Website
 <div align="center">
-  <img src="Data Scraping/screenshot/webstite.png" alt="SS Website"/>
+  <img src="Data Scraping/screenshot/website.png" alt="SS Website"/>
 </div>
 
 ### Data Scraping
