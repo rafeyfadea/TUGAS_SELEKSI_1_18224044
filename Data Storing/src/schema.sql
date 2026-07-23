@@ -40,12 +40,6 @@ CREATE TABLE product_categories (
         ON DELETE CASCADE
 );
 
--- ------------------------------------------------------------
--- 2. Tabel tambahan: simulasi alur belanja (bonus, di luar
---    hasil scraping murni, sesuai poin spesifikasi yang
---    mengizinkan tabel relevan tambahan)
--- ------------------------------------------------------------
-
 CREATE TABLE customers (
     customer_id  SERIAL PRIMARY KEY,
     name         VARCHAR(150) NOT NULL,
