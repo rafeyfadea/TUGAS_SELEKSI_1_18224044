@@ -182,7 +182,7 @@ Contoh:
   <img src="Data Storing/design/relational_diagram.png" alt="Diagram Relasional"/>
 </div>
 
-Skema terdiri dari 4 entitas hasil scraping murni (`products`, `variants`, `categories`, `product_categories`) dan 7 tabel tambahan untuk simulasi alur belanja (`customers`, `customer_addresses`, `carts`, `cart_items`, `orders`, `order_items`, `payments`, plus dua subtipe `bank_transfer_payments` dan `ewallet_payments`). Tabel tambahan sengaja dibiarkan kosong sesuai ketentuan tugas.
+Skema terdiri dari 4 entitas hasil scraping murni (`products`, `variants`, `categories`, `product_categories`) dan 7 tabel tambahan untuk simulasi alur belanja (`customers`, `customer_addresses`, `carts`, `cart_items`, `orders`, `order_items`, `payments`, plus dua subtipe `bank_transfer_payments` dan `ewallet_payments`).
 
 </details>
 
@@ -433,11 +433,9 @@ crontab -l
 <details open>
 <summary><h2>11. Penggunaan AI</h2></summary>
 
-Penyusunan kerangka script scraping awal, debugging, penjelasan konsep ERD/diagram relasional/data warehouse, dan penulisan DDL SQL.
-
-Sementara itu, untuk pemilihan topik dan website, verifikasi manual struktur data lewat inspect element, keputusan desain dilakukan secara mandiri dengan melihat referensi
-
-**Refleksi:** AI banyak membantu mempercepat proses debugging saat asumsi awal soal struktur data website ternyata salah (misalnya soal skema `Product` dan `ProductGroup` di JSON-LD), tapi tetap diperlukan verifikasi manual di browser untuk memastikan setiap solusi sesuai kondisi data yang sebenarnya
+AI digunakan sebagai asisten selama proses pengembangan, terutama untuk menyusun kerangka awal script scraping, debugging error Python dan SQL, menjelaskan konsep ERD, diagram relasional, normalisasi, data warehouse, serta membantu penulisan DDL SQL. Selain itu, AI juga digunakan secara interaktif untuk berdiskusi mengenai implementasi source code, meminta contoh potongan kode, mengevaluasi alternatif solusi, memperbaiki query SQL, dan cron job.
+Sementara itu, pemilihan topik dan website, verifikasi struktur data melalui Inspect Element, identifikasi JSON-LD, desain ERD, diagram relasional, data warehouse, desain header diagram, keputusan normalisasi, implementasi scraping, serta validasi hasil scraping dilakukan secara mandiri dengan mengacu pada dokumentasi resmi dan referensi yang relevan.
+Refleksi: AI sangat membantu mempercepat proses belajar dan debugging, terutama ketika asumsi awal mengenai struktur data website tidak sesuai (misalnya terkait skema Product dan ProductGroup pada JSON-LD), maupun saat menghadapi kendala implementasi. Namun, setiap saran, potongan kode, dan penjelasan dari AI tetap diverifikasi melalui pengujian langsung, dokumentasi resmi, dan inspeksi manual pada website agar solusi yang digunakan benar-benar sesuai dengan kebutuhan.
 
 </details>
 
