@@ -1,75 +1,270 @@
-<h1 align="center">
-  <br>
-  Seleksi Warga Basdat 2026 <br>
-  ETL Project
-  <br>
-  <br>
-</h1>
+<div align="center">
+  <img src="Data Scraping/screenshot/ss_website.png" alt="Header" width="100%"/>
+</div>
 
-<h2 align="left">
-  <br>
-  Singkatnya?
-  <br>
+<h2 align="center">
+  Data Scraping, Storing, dan Warehousing<br/>
+  Katalog Produk <a href="https://motherofpearl.id">Mother of Pearl</a>
 </h2>
-Pada tahap seleksi ini, peserta akan diminta untuk melakukan proses ETL yang meliputi data scraping, database modeling, dan data storing terkait sebuah topik yang dibebaskan kepada peserta. Peserta juga diminta untuk merancang sebuah model ERD dan model relasional yang akan diimplementasikan untuk menyimpan hasil proses data scraping sebelumnya. Tahap seleksi ini menguji kemampuan peserta untuk mengumpulkan data, merancang sebuah database, dan merealisasikan rancangan tersebut menjadi sebuah database relasional yang fungsional.
-  <br>
 
-## Step 1: Data Scraping
-1. Pilih sebuah topik yang akan kalian jadikan sebagai tema pada seleksi _data scraping_ Anda. Daftarkan topik tersebut ke dalam spreadsheet berikut:
-[Daftar Topik Seleksi Asisten Lab Basis Data 2026](https://docs.google.com/spreadsheets/d/1cowSMPtWQApyALrypfMBJSOuqbXyGh2cCaDXKRs8fD4/edit?usp=sharing)
-    - Usahakan agar tidak ada dua atau lebih peserta dengan topik yang sama
-    - First come, first served. Bila ada dua atau lebih peserta dengan topik yang sama, peserta dengan topik yang sudah terdaftar duluan (berada di atas) akan diprioritaskan.
-    - Akses edit ke _spreadsheet_ topik data scraping akan ditutup pada tanggal **25 Juli pukul 20:40 WIB**
-2. Lakukan _data scraping_ dari sebuah _web page_ untuk memperoleh data dan informasi sesuai dengan topik yang telah dipilih oleh masing-masing peserta. 
-    - Data dan informasi yang diperoleh akan digunakan di _step_ berikutnya sebagai data yang akan disimpan di dalam sebuah RDBMS
-    - Peserta **DILARANG** menggunakan API untuk melakukan proses data scraping
-3. Pada folder `Data Scraping`, peserta harus mengumpulkan file _script_ dan file JSON hasil _scraping_ yang telah dilakukan
-    - Folder `src` berisi _script_/_code_ yang telah digunakan untuk _scraping_. Pastikan bahwa _script_/_code_ yang kalian bua bersifat well documented dan clean. 
-    - Folder `data` berisi semua data dan informasi yang berhasil kalian scrape dalam bentu JSON. Peserta diperbolehkan untuk memisahkan hasil _scraping_ ke dalam file-file yang berbeda ataupun digabung dalam satu file yang besar. Yang penting sesuai dengan output dari _script_ _data scraping_ yang digunakan
-    - Folder `screenshot` berisi tangkapan layar dari _script/code_ yang kalian gunakan untuk _data scraping_. Pastikan tangkapan layar dapat dibaca dengan jelas
-4. Sebagai referensi untuk mempelajari dan mengenal _data scraping_, asisten telah menyiapkan dokumen panduan singkat pada link berikut: Panduan Singkat Data Scraping
-    - Dokumen tersebut hanya merupakan panduan bagi peserta. Metodologi _data scraping_ yang digunakan oleh peserta seleksi basdat dibebaskan (asal sesuai peraturan)
-    - Perhatikan dan peragakan etika _data scraping_ yang baik dalam pelaksanaan seleksi ini
-5. Syarat data yang diperoleh dari proses data scraping: Data yang diperoleh harus di-_preprocessing_ terlebih dahulu
-    - Beberapa contoh _preprocessing_:
-        - Cleaning
-        - Parsing
-        - Transformation
-        - Dll
-    - Preprocessing dilakukan untuk memastikan data yang diterima tidak sepenuh-penuhnya mentah dan tidak dapat dipahami dengan mudah
-  
+<p align="center">Seleksi Tahap 2 Asisten Basis Data 2026</p>
 
-## Step 2: Data Modeling + Data Storing
-1. Dari hasil proses _data scraping_ yang telah dilakukan, lakukan perancangan _database_ dalam bentuk **ERD**. Sertakan asumsi dan penjelasan di dalam desain ERD-nya bila diperlukan
-2. Translasikan hasil desain ERD tersebut ke dalam bentuk diagram relasional. Peserta dipersilahkan untuk menambahkan tabel lain yang sekiranya relevan atau berkaitan dengan tabel-tabel yang murni didapatkan dari proses _data scraping_.
-3. Implementasikan skema diagram relasional tersebut ke dalam RDBMS sesuai pilihan peserta (PostgreSQL, mariaDB, etc). Peserta **dilarang** untuk menggunakan DBMS no-SQL
-    - Jangan lupa untuk mengimplementasikan _constraints_ ke dalam _database_ (primary key, foreign key, trigger, dll)
-4. Setelah _database_-nya telah diimplementasikan, masukkan data yang didapatkan dari proses _scraping_ ke dalam RDBMS yang telah dibuat
-    - Tabel tambahan yang dibuat pada poin 2 tidak perlu diisi dengan data (baik data _dummy_ maupun data asli). Cukup dibiarkan kosong
-5. Tools yang digunakan dibebaskan kepada peserta
-6. Pada folder `Data Storing`, peserta harus mengumpulkan bukti penyimpanan data pada DBMS. Folder `Data Storing` terdiri dari folder `design`, `export`, dan `screenshots`.
-    - Folder `design` berisi gambar ERD dan gambar diagram relasional dari _database_ yang kalian rancang. Format file yang diterima adalah **.png**
-    - Folder `src` berisi script/code yang telah digunakan untuk storing. Pastikan bahwa script/code yang kalian bua bersifat well documented dan clean. 
-    - Folder `export` berisi file hasil _export_ dari DBMS dengan format **.sql**
-    - Folder `screenshots` berisi tangkapan layar bukti dari penyimpanan data ke dalam RDBMS (Query SELECT FROM WHERE pada RDBMS)
+---
 
-## Bonus:
-Task-task berikut merupakan bonus yang **TIDAK WAJIB** dilakukan oleh peserta seleksi. Penyelesaian satu atau lebih dari task bonus akan membawa nilai tambahan bagi peserta yang menyelesaikannya. Peserta dibolehkan untuk mengerjakan sebagian atau seluruh dari task bonus yang tersedia
-1. Buatlah perancangan dan implementasi data warehouse berdasarkan data yang diperoleh dari proses data scraping. Rancanglah skema yang diperlukan untuk fact table dan dimension table (misalnya menggunakan pendekatan star schema atau snowflake schema) untuk mendukung kebutuhan analitik. Sertakan struktur skema data warehouse yang digunakan beserta contoh query analitik yang bisa dijalankan terhadap data tersebut. 
-2. Lakukan automated scheduling untuk keseluruhan proses, sehingga data dapat di-update secara berkala. Pastikan tidak terdapat redundansi data pada DBMS. Jika mengerjakan bonus ini, jelaskan pada README dan cantumkan pada data waktu pelaksanaan scheduling, misalnya dengan menunjukkan perbedaan timestamp ekstraksi antara data pada batch pertama dan data pada batch kedua
+<details open>
+<summary><h2>1. Author</h2></summary>
 
+| Nama | NIM |
+|------|-----|
+| Rafeyfa Dea Putri Ramadhani | 18224044 |
 
-# Pengumpulan
-1. Peserta diwajibkan untuk melakukan _fork_ terhadap project [GitHub Seleksi Lab Basdat 2026](https://github.com/wargabasdat/Seleksi-2026-Tugas-1). Peserta harus melakukan _pull request_ dengan nama **TUGAS_SELEKSI_1_[NIM]** sebelum tenggat waktu yang telah ditetapkan
-2. Tambahkan **.gitignore** pada _file_ atau _folder_ yang tidak perlu di-upload. NB: Binary tidak perlu di-upload
-3. Sertakan file **README** yang memuat:
-    - Author (Nama dan NIM)
-    - Deskripsi singkat mengenai data dan DBMS yang telah dibuat + mengapa kalian memilih topik tersebut
-    - Cara menggunakan scraper yang telah dibuat dan menggunakan hasil output-nya
-    - Penjelasan struktur dari file JSON yang dihasilkan scraper
-    - Struktur ERD dan diagram relasional RDBMS
-    - Penjelasan mengenai proses translasi ERD menjadi diagram relasional
-    - Beberapa screenshot dari program yang dijalankan (image di-upload sesuai folder-folder yang tersedia, di README tinggal ditampilkan)
-    - Referensi (library yang digunakan, link halaman web yang di-scrape, etc)
-  
-# DEADLINE PENGUMPULAN ADALAH TANGGAL 23 Juli 2026, PUKUL 22:40
+</details>
+
+<details open>
+<summary><h2>2. Deskripsi Singkat</h2></summary>
+
+Mother of Pearl adalah brand kosmetik lokal yang menjual produk makeup dan skincare lewat toko Shopify di motherofpearl.id. Website ini menampilkan katalog produk lengkap dengan harga, daftar shade per produk, status stok, dan nomor izin edar BPOM untuk tiap shade.
+
+Website ini dipilih karena datanya memiliki struktur berlapis yang jelas, sehingga relevan untuk dipraktikkan dalam pemodelan basis data relasional. Data harga yang berubah pada setiap shade (bukan pada tingkat produk) juga menjadi tantangan tersendiri dalam merancang skema basis data yang tepat. Selain itu, topik ini dipilih karena sesuai dengan ketertarikan saya terhadap dunia makeup, sehingga proses eksplorasi data dan analisis produk menjadi lebih menarik.
+</details>
+
+<details open>
+<summary><h2>3. Cara Menjalankan Scraper</h2></summary>
+
+**Requirements:** Python 3.9+, PostgreSQL 14+, library `requests` dan `beautifulsoup4`.
+
+```sh
+git clone [URL_REPOSITORY_HASIL_FORK]
+cd [NAMA_FOLDER_PROYEK]/Data\ Scraping/src
+pip install -r requirements.txt
+python3 products.py
+python3 variants.py
+python3 categories.py
+```
+
+Hasilnya empat file JSON di `Data Scraping/data`: `products.json`, `variants.json`, `categories.json`, `product_categories.json`.
+
+**Load ke database:**
+```sh
+cd ../../Data\ Storing/src
+createdb motherofpearl_db
+psql motherofpearl_db -f schema.sql
+pip install psycopg2-binary
+python3 load_to_postgres.py
+```
+
+</details>
+
+<details open>
+<summary><h2>4. Struktur File JSON</h2></summary>
+
+**products.json** - satu baris per produk.
+```json
+{
+  "product_id": "g-w-s-gleaming-wonderful-shiny-plump-gloss-01-mlbb",
+  "name": "G.W.S (Gleaming, Wonderful, Shiny) Plump Gloss",
+  "category": "Lip Gloss",
+  "description": "...",
+  "netto": "4 ml",
+  "pao": "12 months",
+  "url": "https://motherofpearl.id/products/..."
+}
+```
+
+**variants.json** - satu baris per shade. Harga dan stok melekat di sini, bukan di produk, karena tiap shade bisa punya harga berbeda.
+```json
+{
+  "variant_id": "46284845351156",
+  "product_id": "g-w-s-gleaming-wonderful-shiny-plump-gloss-01-mlbb",
+  "sku": "OFB8J22",
+  "shade_name": "MLBB",
+  "price": 84150.0,
+  "compare_at_price": null,
+  "availability": "InStock",
+  "bpom_number": "NA18231300591"
+}
+```
+
+**categories.json** dan **product_categories.json** - daftar kategori dan tabel relasi many-to-many antara produk dan kategori (satu produk bisa masuk lebih dari satu kategori).
+
+</details>
+
+<details open>
+<summary><h2>5. ERD dan Diagram Relasional</h2></summary>
+
+<div align="center">
+  <img src="Data Storing/design/ERD.png" alt="ERD"/>
+</div>
+
+<div align="center">
+  <img src="Data Storing/design/relational_diagram.png" alt="Diagram Relasional"/>
+</div>
+
+Skema terdiri dari 4 entitas hasil scraping murni (`products`, `variants`, `categories`, `product_categories`) dan 7 tabel tambahan untuk simulasi alur belanja (`customers`, `customer_addresses`, `carts`, `cart_items`, `orders`, `order_items`, `payments`, plus dua subtipe `bank_transfer_payments` dan `ewallet_payments`). Tabel tambahan sengaja dibiarkan kosong sesuai ketentuan tugas.
+
+</details>
+
+<details open>
+<summary><h2>6. Translasi ERD ke Relasional</h2></summary>
+
+1. **Entitas jadi tabel.** Tiap entitas kuat langsung jadi tabel dengan primary key masing-masing (`product_id`, `variant_id`, `customer_id`, dan seterusnya).
+
+2. **Relasi one-to-many** ditranslasi dengan menaruh foreign key di sisi banyak. Contoh: `variants.product_id` merujuk ke `products.product_id`.
+
+3. **Relasi many-to-many** ditranslasi jadi tabel penghubung dengan composite primary key. Contoh: `product_categories(product_id, category_id)` menghubungkan `products` dan `categories`.
+
+4. **Relasi many-to-many dengan atribut tambahan** (seperti kuantitas) ditranslasi jadi tabel tersendiri, bukan cuma tabel penghubung kosong. Contoh: `order_items` menyimpan `quantity` dan `price_at_purchase`, bukan cuma pasangan `order_id`-`variant_id`.
+
+5. **Generalization (IS A)** ditranslasi dengan pendekatan table-per-subclass. `payments` jadi tabel superclass, sedangkan `bank_transfer_payments` dan `ewallet_payments` jadi tabel subclass yang primary key-nya (`payment_id`) sekaligus jadi foreign key ke `payments`.
+
+</details>
+
+<details open>
+<summary><h2>7. Screenshot</h2></summary>
+
+### Tampilan Website
+<div align="center">
+  <img src="Data Scraping/screenshot/website.png" alt="SS Website"/>
+</div>
+
+### Data Scraping
+### Hasil Scraping 1
+
+<div align="center">
+  <img src="Data Scraping/screenshot/scraping-1.png" width="850">
+</div>
+
+---
+
+### Hasil Scraping 2
+
+<div align="center">
+  <img src="Data Scraping/screenshot/scraping-2.png" width="850">
+</div>
+
+---
+
+### Hasil Scraping 3
+
+<div align="center">
+  <img src="Data Scraping/screenshot/scraping-3.png" width="850">
+</div>
+
+### Data Storing
+### Proses Storing
+
+<div align="center">
+  <img src="Data Storing/screenshot/storing-1.png" alt="Proses Storing" width="850"/>
+</div>
+
+---
+
+### List of Relations
+
+<div align="center">
+  <img src="Data Storing/screenshot/storing-2.png" alt="List of Relations" width="850"/>
+</div>
+
+---
+
+### Product_Categories
+
+<div align="center">
+  <img src="Data Storing/screenshot/storing-3.png" alt="Product_Categories" width="850"/>
+</div>
+
+---
+
+### Categories
+
+<div align="center">
+  <img src="Data Storing/screenshot/storing-4.png" alt="Categories" width="850"/>
+</div>
+
+---
+
+### Products
+
+<div align="center">
+  <img src="Data Storing/screenshot/storing-5.png" alt="Products" width="850"/>
+</div>
+
+---
+
+### Variants
+
+<div align="center">
+  <img src="Data Storing/screenshot/storing-6.png" alt="Variants" width="850"/>
+</div>
+
+<div align="center">
+  <img src="Data Storing/screenshot/storing-7.png" alt="Variants-2" width="850"/>
+</div>
+<summary><h2>8. Bonus: Data Warehouse</h2></summary>
+
+Skema star, dibangun dari tabel `products`, `variants`, dan `categories` (bukan dari data order, karena tabel order sengaja kosong). Fact table `sales` menyimpan harga dan diskon di level varian, dengan foreign key langsung ke `products`, `variants`, `categories`, dan dimensi baru `availability`.
+
+<div align="center">
+  <img src="Data Warehouse/design/data_warehouse_ERD.png" alt="ERD Data Warehouse"/>
+</div>
+
+<div align="center">
+  <img src="Data Warehouse/design/data_warehouse_Relational.png" alt="Star Schema"/>
+</div>
+
+### Creating the Schema and Tables
+
+<div align="center">
+  <img src="Data Warehouse/screenshot/warehouse-1.png" alt="Creating the Schema and Tables" width="800"/>
+</div>
+
+---
+
+### Loading Data into the Data Warehouse
+
+<div align="center">
+  <img src="Data Warehouse/screenshot/warehouse-2.png" alt="Loading Data into the Data Warehouse" width="800"/>
+</div>
+
+---
+
+### Analysis Queries
+
+<div align="center">
+  <img src="Data Warehouse/screenshot/warehouse-3.png" alt="Analysis Queries" width="800"/>
+</div>
+
+<details>
+<summary><h2>9. Bonus: Query Optimasi</h2></summary>
+
+Tiga optimasi di `Query Optimasi/query_optimasi.sql`:
+
+1. Index pada `variants.product_id` (foreign key tidak otomatis ter-index di PostgreSQL) untuk mempercepat join produk-varian.
+2. Index pada `variants.availability` untuk mempercepat filter berdasarkan status stok.
+3. Menulis ulang correlated subquery (`EXISTS`) jadi `JOIN` biasa untuk mencari produk dengan varian diskon.
+
+Bukti perubahan dari Seq Scan ke Index Scan ada di screenshot `EXPLAIN ANALYZE` folder `Query Optimasi`.
+
+</details>
+
+<details open>
+<summary><h2>10. Penggunaan AI</h2></summary>
+
+Penyusunan kerangka script scraping awal, debugging, penjelasan konsep ERD/diagram relasional/data warehouse, dan penulisan DDL SQL.
+
+Sementara itu, untuk pemilihan topik dan website, verifikasi manual struktur data lewat inspect element, keputusan desain dilakukan secara mandiri dengan melihat referensi
+
+**Refleksi:** AI banyak membantu mempercepat proses debugging saat asumsi awal soal struktur data website ternyata salah (misalnya soal skema `Product` dan `ProductGroup` di JSON-LD), tapi tetap diperlukan verifikasi manual di browser untuk memastikan setiap solusi sesuai kondisi data yang sebenarnya
+
+</details>
+
+<details open>
+<summary><h2>11. Referensi</h2></summary>
+
+1. [Mother of Pearl - All Products](https://motherofpearl.id)
+2. [Dokumentasi PostgreSQL](https://www.postgresql.org/)
+3. [Dokumentasi Requests](https://requests.readthedocs.io/)
+4. [Dokumentasi BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+5. [Dokumentasi psycopg2](https://www.psycopg.org/docs/)
+
+</details>
