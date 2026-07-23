@@ -432,11 +432,11 @@ crontab -l
 
 <details open>
 <summary><h2>11. Penggunaan AI</h2></summary>
+AI digunakan sebagai asisten selama proses pengembangan, terutama untuk menyusun kerangka awal script scraping, debugging error Python dan SQL, menjelaskan konsep ERD, diagram relasional, normalisasi, data warehouse, serta membantu penulisan DDL SQL. Selain itu, AI juga digunakan secara interaktif untuk berdiskusi mengenai implementasi *source code*, meminta contoh potongan kode, mengevaluasi alternatif solusi, memperbaiki query SQL, dan konfigurasi *cron job*.<br><br>
 
-AI digunakan sebagai asisten selama proses pengembangan, terutama untuk menyusun kerangka awal script scraping, debugging error Python dan SQL, menjelaskan konsep ERD, diagram relasional, normalisasi, data warehouse, serta membantu penulisan DDL SQL. Selain itu, AI juga digunakan secara interaktif untuk berdiskusi mengenai implementasi source code, meminta contoh potongan kode, mengevaluasi alternatif solusi, memperbaiki query SQL, dan cron job.
-Sementara itu, pemilihan topik dan website, verifikasi struktur data melalui Inspect Element, identifikasi JSON-LD, desain ERD, diagram relasional, data warehouse, desain header diagram, keputusan normalisasi, implementasi scraping, serta validasi hasil scraping dilakukan secara mandiri dengan mengacu pada dokumentasi resmi dan referensi yang relevan.
-Refleksi: AI sangat membantu mempercepat proses belajar dan debugging, terutama ketika asumsi awal mengenai struktur data website tidak sesuai (misalnya terkait skema Product dan ProductGroup pada JSON-LD), maupun saat menghadapi kendala implementasi. Namun, setiap saran, potongan kode, dan penjelasan dari AI tetap diverifikasi melalui pengujian langsung, dokumentasi resmi, dan inspeksi manual pada website agar solusi yang digunakan benar-benar sesuai dengan kebutuhan.
+Sementara itu, pemilihan topik dan website, verifikasi struktur data melalui *Inspect Element*, identifikasi JSON-LD, desain ERD, diagram relasional, data warehouse, desain header diagram, keputusan normalisasi, implementasi scraping, serta validasi hasil scraping dilakukan secara mandiri dengan mengacu pada dokumentasi resmi dan referensi yang relevan.<br><br>
 
+**Refleksi:** AI sangat membantu mempercepat proses belajar dan debugging, terutama ketika asumsi awal mengenai struktur data website tidak sesuai (misalnya terkait skema *Product* dan *ProductGroup* pada JSON-LD), maupun saat menghadapi kendala implementasi. Namun, setiap saran, potongan kode, dan penjelasan dari AI tetap diverifikasi melalui pengujian langsung, dokumentasi resmi, dan inspeksi manual pada website agar solusi yang digunakan benar-benar sesuai dengan kebutuhan.
 </details>
 
 <details open>
