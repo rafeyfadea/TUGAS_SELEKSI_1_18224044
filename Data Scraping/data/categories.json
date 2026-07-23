@@ -1,0 +1,32 @@
+[
+  {
+    "category_id": 1,
+    "slug": "face-all",
+    "name": "Face All"
+  },
+  {
+    "category_id": 2,
+    "slug": "eyes",
+    "name": "Eyes"
+  },
+  {
+    "category_id": 3,
+    "slug": "lips-all",
+    "name": "Lips All"
+  },
+  {
+    "category_id": 4,
+    "slug": "cheeks",
+    "name": "Cheeks"
+  },
+  {
+    "category_id": 5,
+    "slug": "skincare",
+    "name": "Skincare"
+  },
+  {
+    "category_id": 6,
+    "slug": "headband",
+    "name": "Headband"
+  }
+]
