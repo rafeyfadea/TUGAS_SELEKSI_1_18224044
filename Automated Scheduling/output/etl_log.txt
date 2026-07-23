@@ -1,0 +1,4 @@
+[2026-07-23 21:00:20.081235] Run #1 - products=28 variants=129 categories=6 product_categories=43
+[2026-07-23 21:19:52.169742] Run #2 - products=28 variants=129 categories=6 product_categories=43
+[2026-07-23 21:21:54.809965] Run #3 - products=28 variants=129 categories=6 product_categories=43
+[2026-07-23 21:22:35.805873] Run #4 - products=28 variants=129 categories=6 product_categories=43
