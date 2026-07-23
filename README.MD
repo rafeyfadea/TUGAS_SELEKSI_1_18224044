@@ -407,20 +407,27 @@ Perintah di atas akan menjalankan pipeline setiap **6 jam**. Untuk melihat dafta
 crontab -l
 ```
 
-### Screenshot
+### 1. Cron Job Terpasang
 
 <div align="left">
   <img src="Automated Scheduling/screenshot/scheduling-1.png" alt="Cron job berhasil terpasang" width="700"/>
 </div>
 
+---
+
+### 2. Pipeline Berjalan Otomatis
+
 <div align="left">
   <img src="Automated Scheduling/screenshot/scheduling-2.png" alt="Pipeline berjalan otomatis" width="700"/>
 </div>
 
+---
+
+### 3. Hasil ETL Log
+
 <div align="left">
   <img src="Automated Scheduling/screenshot/scheduling-3.png" alt="ETL log menunjukkan dua kali eksekusi tanpa data duplikat" width="700"/>
 </div>
-
 </details>
 
 <details open>
